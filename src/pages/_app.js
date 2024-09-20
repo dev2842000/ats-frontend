@@ -1,21 +1,26 @@
 import "@/styles/globals.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { setToken } from "@/utils/helper";
+import { AuthProvider } from "@/Context/AuthContext";
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    const { token, email, userId } = router.query;
+    const { token, userId } = router.query;
 
     if (token) {
-      sessionStorage.setItem('authToken', token);
-      sessionStorage.setItem('userEmail', email);
-      sessionStorage.setItem('userId', userId);
+      setToken(token,userId)
 
-      router.push('/profile');
+      window.location.href='/';
+
     }
-  }, [router]);
+  }, [router.query.token, router.query.userId]);
 
-  return <Component {...pageProps} />
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
 }
