@@ -2,6 +2,8 @@ import { useEffect, useState, Suspense } from "react";
 import { useRouter } from 'next/navigation';
 import Layout from "@/CommonComponents/Layout";
 import Loader from "@/CommonComponents/Loader";
+import { useDispatch } from "react-redux";
+import { setAuthData } from '../../store/authSlice'; // Adjust the path if necessary
 
 // Fetch user data and return a promise
 const fetchUserData = async (token, userId) => {
@@ -66,17 +68,19 @@ const ProfileContent = ({ token, userId }) => {
 
 const Profile = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
   const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : null;
 
   useEffect(() => {
-    if (!token) {
+    if (!token || !userId) {
       router.push('/auth');
     } else {
+      dispatch(setAuthData({ token, userId })); // Dispatch action to set auth data
       setLoading(false);
     }
-  }, [router, token]);
+  }, [router, token, userId, dispatch]);
 
   if (loading) {
     return <Loader />;

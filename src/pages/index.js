@@ -1,61 +1,97 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Layout from '@/CommonComponents/Layout';
 import Image from 'next/image';
+import { AtomIcon, Edit, Share2 } from 'lucide-react';
+import Link from 'next/link';
 
 const Home = () => {
   const sliderSettings = {
     infinite: true,
-    speed: 1000, // Smooth transition speed
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     cssEase: "linear",
-    arrows: false, // Hides the arrows
+    arrows: false,
   };
+
+  // Track if we're in the browser
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
   return (
     <Layout>
       <div className="min-h-screen bg-gray-100 text-black">
         <section>
           <div className="relative w-full h-screen">
-          <div>
+            <div>
+              {isBrowser && (
                 <Image
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://media.istockphoto.com/id/1280385511/photo/colorful-background.jpg?s=1024x1024&w=is&k=20&c=vd0BzayI498v8pOGlhzbvTiNpNf7HF5dClK4Qvy4Jac="
                   alt="Banner 2"
                   quality={90}
-                  style={{
-                    width: '100%',
-                    height: 745,
-                  }}
                   width={500}
-                  height={600}
+                  height={745}
                   priority
+                  objectFit='cover'
+                  style={{
+                    width:'100%',
+                  }}
                 />
-              </div>
+              )}
+            </div>
           </div>
         </section>
+        <section className="py-8 bg-white z-50 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+          <h2 className="font-bold text-3xl">How it Works?</h2>
+          <h2 className="text-md text-gray-500">Give mock interview in just 3 simpler easy steps</h2>
 
-        <section className="mt-16 px-6">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">Why Choose ATS-Resume?</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4">Optimized for ATS</h3>
-                <p>Create resumes that pass through Applicant Tracking Systems easily.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4">User-Friendly Interface</h3>
-                <p>Simple and intuitive design to create a resume in minutes.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4">Customizable Templates</h3>
-                <p>Pick from a wide range of templates suited for various job roles.</p>
-              </div>
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+            >
+              <AtomIcon className='h-8 w-8' />
+              <h2 className="mt-4 text-xl font-bold text-black">Write prompt for your form</h2>
+              <p className="mt-1 text-sm text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+              </p>
             </div>
+
+            <div
+              className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+            >
+              <Edit className='h-8 w-8' />
+              <h2 className="mt-4 text-xl font-bold text-black">Edit Your form</h2>
+              <p className="mt-1 text-sm text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+              </p>
+            </div>
+
+            <div
+              className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-pink-500/10"
+            >
+              <Share2 className='h-8 w-8' />
+              <h2 className="mt-4 text-xl font-bold text-black">Share & Start Accepting Responses</h2>
+              <p className="mt-1 text-sm text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/auth"
+              className="inline-block rounded bg-pink-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
+            >
+              Get Started Today
+            </Link>
           </div>
         </section>
       </div>

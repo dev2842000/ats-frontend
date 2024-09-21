@@ -2,7 +2,8 @@ import "@/styles/globals.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { setToken } from "@/utils/helper";
-import { AuthProvider } from "@/Context/AuthContext";
+import { store } from '../store/store';
+import { Provider } from 'react-redux';
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -11,16 +12,16 @@ export default function MyApp({ Component, pageProps }) {
     const { token, userId } = router.query;
 
     if (token) {
-      setToken(token,userId)
+      setToken(token, userId)
 
-      window.location.href='/';
+      router.push('/profile')
 
     }
-  }, [router.query.token, router.query.userId]);
+  }, [router,router.query.token, router.query.userId]);
 
   return (
-    <AuthProvider>
+    <Provider store={store}>
       <Component {...pageProps} />
-    </AuthProvider>
+    </Provider>
   );
 }

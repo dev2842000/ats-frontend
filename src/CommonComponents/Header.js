@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <header className='p-3 px-5 flex justify-between items-center shadow-md bg-white'>
-      {/* <Image
+      <Image
         className="cursor-pointer mr-4"
         onClick={() => router.push('/')}
         src={LOGO}
@@ -35,8 +35,7 @@ const Header = () => {
         priority={true}
         loading='eager'
         sizes="(max-width: 640px) 40px, 50px"
-      /> */}
-      <h1 onClick={() => router.push('/')} className="cursor-pointer mr-4">ATS-Resume</h1>
+      />
 
       {/* Navigation for larger screens */}
       <nav className="hidden md:flex items-center space-x-6">

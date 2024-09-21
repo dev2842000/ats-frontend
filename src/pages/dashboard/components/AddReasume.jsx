@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { PlusSquare } from 'lucide-react';
 import CustomInput from '@/CommonComponents/CustomInput';
 import Button from '@/CommonComponents/Button';
+import { useRouter } from 'next/router';
 
 const AddResume = () => {
     const [dialogOpen, setDialogOpen] = useState(false);
     const [resumeTitle, setResumeTitle] = useState(null)
+    const router=useRouter()
 
     const handlerReseumeTitle = (title) => {
         console.log(title);
         setResumeTitle(null)
         setDialogOpen(false)
-
+        router.push(`/dashboard/${title}`)
     }
 
     return (

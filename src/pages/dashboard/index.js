@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from "@/CommonComponents/Layout";
-import AddReasume from '@/DashbordComponents/AddReasume';
+import AddReasume from './components/AddReasume';
 
 const Dashboard = () => {
   return (
