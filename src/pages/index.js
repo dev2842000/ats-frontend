@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import Layout from '@/CommonComponents/Layout';
 import Image from 'next/image';
 import { AtomIcon, Edit, Share2 } from 'lucide-react';
 import Link from 'next/link';
 
 const Home = () => {
-  const sliderSettings = {
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: "linear",
-    arrows: false,
-  };
+  const [isMobile, setIsMobile] = useState(false);
 
   // Track if we're in the browser
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
     setIsBrowser(true);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the value for your mobile breakpoint
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -32,17 +34,28 @@ const Home = () => {
         <section>
           <div className="relative w-full h-screen">
             <div>
-              {isBrowser && (
+              {isMobile ? (
                 <Image
-                  src="https://media.istockphoto.com/id/1280385511/photo/colorful-background.jpg?s=1024x1024&w=is&k=20&c=vd0BzayI498v8pOGlhzbvTiNpNf7HF5dClK4Qvy4Jac="
-                  alt="Banner 2"
+                  src="https://images.unsplash.com/photo-1594948506928-2d4cad88d0af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Mobile Banner"
                   quality={90}
                   width={500}
                   height={745}
-                  priority
-                  objectFit='cover'
+                  objectFit="cover"
                   style={{
-                    width:'100%',
+                    width: '100%',
+                  }}
+                />
+              ) : (
+                <Image
+                  src="https://media.istockphoto.com/id/1280385511/photo/colorful-background.jpg?s=1024x1024&w=is&k=20&c=vd0BzayI498v8pOGlhzbvTiNpNf7HF5dClK4Qvy4Jac="
+                  alt="Desktop Banner"
+                  quality={90}
+                  width={500}
+                  height={745}
+                  objectFit="cover"
+                  style={{
+                    width: '100%',
                   }}
                 />
               )}
