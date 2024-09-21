@@ -4,16 +4,7 @@ import { setResumeInfo } from '@/store/resumeSlice'; // Adjust the path if neces
 import Layout from '@/CommonComponents/Layout';
 import ResumePreview from './components/ResumePreview';
 import FormSection from './components/FormSection';
-import dummy from '@/data/dummy';
-
 export default function Page() {
-  const dispatch = useDispatch();
-  const resumeInfo = useSelector((state) => state.resume.info); // Access resume info from Redux
-
-  useEffect(() => {
-    // Dispatch action to set resume info if needed
-    dispatch(setResumeInfo(dummy)); // You can also fetch new data here
-  }, [dispatch]);
 
   return (
     <Layout>

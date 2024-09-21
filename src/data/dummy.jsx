@@ -1,17 +1,16 @@
 const resumeData = {
-    firstName: 'Dev',
-    lastName: 'Kumar',
+    fullName: null,
+    jobTitle:null,
     links: [
-        { name: 'Linkedin', link: '#' },
-        { name: 'Github', link: '#' },
-        { name: 'Leetcode', link: '#' },
-        { name: 'Portfolio', link: '#' }
+        { name: 'Linkedin', link: '' , isChecked:false},
+        { name: 'Github', link: '' , isChecked:false},
+        { name: 'Leetcode', link: '' , isChecked:false},
+        { name: 'Portfolio', link: '' , isChecked:false}
     ],
-    address: '525 N Tryon Street, NC 28117',
-    phone: '+91-1234567890',
-    email: 'example@gmail.com',
-    themeColor: "#000000", // Changed to valid hex color
-    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    phone: null,
+    email: null,
+    themeColor: "#000000",
+    summary: 'Experienced Software Developer with 2+ years of expertise in MERN stack, with strong logic-building skills. Proficient in GatsbyJS, NextJS, React-Native, and Python. Eager to leverage my skills to contribute to the growth of your company.',
     experience: [
         {
             id: 1,
@@ -23,28 +22,26 @@ const resumeData = {
             endDate: '',
             currentlyWorking: true,
             workSummary: [
-                'Designed, developed, and maintained full-stack applications using React and Node.js.',
-                'Implemented responsive user interfaces with React, ensuring seamless user experiences across various devices and browsers.',
-                'Maintained the React Native in-house organization application.',
-                'Created RESTful APIs with Node.js and Express, facilitating data communication between the front-end and back-end systems.'
+                'Utilized the MERN stack, Gatsby.js, Next.js, and React Native, resulting in a 20% increase in project efficiency.',
+                'Ensured on-time delivery of 10+ projects by actively contributing to project management strategies, leading to a 15% reduction in project timelines.',
+                'Collaborated cross-functionally to resolve 50+ complex technical challenges, fostering innovation and improving team efficiency by 30%.',
             ]
         },
         {
             id: 2,
-            title: 'Frontend Developer',
+            title: 'SDE',
             companyName: 'Google',
-            city: 'Charlotte',
-            state: 'NC',
-            startDate: 'May 2019',
+            city: 'New York',
+            state: 'NY',
+            startDate: 'Jan 2018',
             endDate: 'Jan 2021',
             currentlyWorking: false,
             workSummary: [
-                'Designed, developed, and maintained full-stack applications using React and Node.js.',
-                'Implemented responsive user interfaces with React, ensuring seamless user experiences across various devices and browsers.',
-                'Maintained the React Native in-house organization application.',
-                'Created RESTful APIs with Node.js and Express, facilitating data communication between the front-end and back-end systems.'
+                'Utilized the MERN stack, Gatsby.js, Next.js, and React Native, resulting in a 20% increase in project efficiency.',
+                'Ensured on-time delivery of 10+ projects by actively contributing to project management strategies, leading to a 15% reduction in project timelines.',
+                'Collaborated cross-functionally to resolve 50+ complex technical challenges, fostering innovation and improving team efficiency by 30%.',
             ]
-        }
+        },
     ],
     education: [
         {
@@ -53,6 +50,7 @@ const resumeData = {
             startDate: 'Aug 2018',
             endDate: 'Dec 2019',
             degree: 'Master',
+            completed: true,
             major: 'Computer Science',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.'
         },
@@ -62,6 +60,7 @@ const resumeData = {
             startDate: 'Aug 2018',
             endDate: 'Dec 2019', // Removed colon
             degree: 'Master',
+            completed: false,
             major: 'Computer Science',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.'
         }
@@ -80,4 +79,4 @@ const resumeData = {
     ]
 };
 
-export default resumeData; // Exporting the variable
+export default resumeData;

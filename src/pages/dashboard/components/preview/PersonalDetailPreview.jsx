@@ -9,29 +9,39 @@ function PersonalDetailPreview({ resumeInfo }) {
                     color: resumeInfo?.themeColor
                 }}
             >
-                {resumeInfo?.firstName} {resumeInfo?.lastName}
+                {resumeInfo?.fullName}
+            </h2>
+            <h2 className='text-l text-center'
+                style={{
+                    color: resumeInfo?.themeColor
+                }}
+            >
+                {resumeInfo?.jobTitle}
             </h2>
 
             <div className='flex justify-center gap-2 my-2'>
-                {resumeInfo?.links?.map((item, index) => {
-                    return (
-                        <React.Fragment key={index}>
-                            <Link
-                                href={item.link}
-                                className="text-xs flex items-center underline hover:underline"
-                                style={{ color: resumeInfo?.themeColor }}
-                            >
-                                {item.name}
-                            </Link>
-                            {index !== resumeInfo?.links.length - 1 && (
-                                <span className='text-xs' style={{ color: resumeInfo?.themeColor }}>
-                                    |
-                                </span>
-                            )}
-                        </React.Fragment>
-                    );
-                })}
+                {resumeInfo?.links
+                    ?.filter((item) => item.isChecked) // Filter links that are checked
+                    .map((item, index) => {
+                        return (
+                            <React.Fragment key={index}>
+                                <Link
+                                    href={item.link}
+                                    className="text-xs flex items-center underline hover:underline"
+                                    style={{ color: resumeInfo?.themeColor }}
+                                >
+                                    {item.name}
+                                </Link>
+                                {index !== resumeInfo?.links.filter((link) => link.isChecked).length - 1 && ( // Ensure the separator only shows between visible links
+                                    <span className='text-xs' style={{ color: resumeInfo?.themeColor }}>
+                                        |
+                                    </span>
+                                )}
+                            </React.Fragment>
+                        );
+                    })}
             </div>
+
 
 
 

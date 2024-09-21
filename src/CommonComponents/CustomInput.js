@@ -1,5 +1,5 @@
 // Components/CustomInput.js
-const CustomInput = ({ label, id, type, value, onChange, placeholder, required = false, style }) => {
+const CustomInput = ({ label, id, type, value, onChange, placeholder, required = false, style,name,defaultValue }) => {
   return (
     <div>
       <label htmlFor={id} className="block mb-2 text-sm font-medium text-black-900 dark:text-black">
@@ -13,6 +13,8 @@ const CustomInput = ({ label, id, type, value, onChange, placeholder, required =
         required={required}
         className={style}
         placeholder={placeholder}
+        name={name}
+        defaultValue={defaultValue}
       />
     </div>
   );

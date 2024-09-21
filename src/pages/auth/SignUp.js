@@ -34,7 +34,6 @@ const SignUp = () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log(data);
         setToken(data.token, data.userId);
         router.push('/profile');
       } else {

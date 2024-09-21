@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Home, LayoutGrid } from 'lucide-react';
 import PersonalDetail from './forms/PersonalDetail';
 import Summery from './forms/Summary';
-// import Experience from './forms/Experience';
-// import Education from './forms/Education';
-// import Skills from './forms/Skills';
+import Experience from './forms/Experience';
+import Education from './forms/Education';
+import Skills from './forms/Skills';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Button from '@/CommonComponents/Button';
@@ -13,7 +13,7 @@ function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
   const [enableNext, setEnableNext] = useState(true);
   const router = useRouter();
-  const { resumeId } = router.query; // Accessing the resumeId from the URL
+  const { resumeId } = router.query;
 
   return (
     <div>
@@ -50,14 +50,11 @@ function FormSection() {
       ) : activeFormIndex == 2 ? (
         <Summery enabledNext={(v) => setEnableNext(v)} />
       ) : activeFormIndex == 3 ? (
-        // <Experience />
-        <></>
+        <Experience />
       ) : activeFormIndex == 4 ? (
-        // <Education />
-        <></>
+        <Education />
       ) : activeFormIndex == 5 ? (
-        // <Skills />
-        <></>
+        <Skills />
       ) : activeFormIndex == 6 ? (
         <Link href={`/my-resume/${resumeId}/view`}></Link>
       ) : null}

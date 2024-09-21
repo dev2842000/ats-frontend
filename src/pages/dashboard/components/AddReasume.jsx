@@ -10,7 +10,6 @@ const AddResume = () => {
     const router=useRouter()
 
     const handlerReseumeTitle = (title) => {
-        console.log(title);
         setResumeTitle(null)
         setDialogOpen(false)
         router.push(`/dashboard/${title}`)

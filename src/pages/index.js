@@ -34,19 +34,7 @@ const Home = () => {
         <section>
           <div className="relative w-full h-screen">
             <div>
-              {isMobile ? (
-                <Image
-                  src="https://images.unsplash.com/photo-1594948506928-2d4cad88d0af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Mobile Banner"
-                  quality={90}
-                  width={500}
-                  height={745}
-                  objectFit="cover"
-                  style={{
-                    width: '100%',
-                  }}
-                />
-              ) : (
+              {!isMobile ? (
                 <Image
                   src="https://media.istockphoto.com/id/1280385511/photo/colorful-background.jpg?s=1024x1024&w=is&k=20&c=vd0BzayI498v8pOGlhzbvTiNpNf7HF5dClK4Qvy4Jac="
                   alt="Desktop Banner"
@@ -54,6 +42,20 @@ const Home = () => {
                   width={500}
                   height={745}
                   objectFit="cover"
+                  priority={true}
+                  style={{
+                    width: '100%',
+                  }}
+                />
+              ) : (
+                <Image
+                  src="https://images.unsplash.com/photo-1594948506928-2d4cad88d0af?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Mobile Banner"
+                  quality={90}
+                  width={500}
+                  height={900}
+                  objectFit="cover"
+                  priority={true}
                   style={{
                     width: '100%',
                   }}
