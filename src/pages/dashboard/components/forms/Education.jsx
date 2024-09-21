@@ -1,4 +1,3 @@
-import { ResumeInfoContext } from '@/context/ResumeInfoContext'
 import { LoaderCircle } from 'lucide-react'
 import React, { useContext, useEffect, useState } from 'react'
 // import { useParams } from 'react-router-dom'

@@ -4,7 +4,6 @@ import React, { useContext, useEffect, useState } from 'react'
 
 // import '@smastrom/react-rating/style.css'
 import { LoaderCircle } from 'lucide-react'
-import { ResumeInfoContext } from '@/context/ResumeInfoContext'
 // import GlobalApi from './../../../../../service/GlobalApi'
 import { toast } from 'sonner'
 import CustomInput from '@/CommonComponents/CustomInput'
