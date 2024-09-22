@@ -2,7 +2,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useRouter } from 'next/navigation';
 import Layout from "@/CommonComponents/Layout";
 import Loader from "@/CommonComponents/Loader";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAuthData } from '../../store/authSlice'; // Adjust the path if necessary
 
 // Fetch user data and return a promise
@@ -69,18 +69,33 @@ const ProfileContent = ({ token, userId }) => {
 const Profile = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  
+  const { token: reduxToken, userId: reduxUserId } = useSelector((state) => state.auth); // Get token and userId from Redux store
   const [loading, setLoading] = useState(true);
-  const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
-  const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : null;
 
   useEffect(() => {
+    let token = reduxToken;
+    let userId = reduxUserId;
+    
+    if (!reduxToken || !reduxUserId) {
+      // If not in Redux, check localStorage
+      token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
+      userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : null;
+
+      // If found in localStorage, dispatch to Redux
+      if (token && userId) {
+        dispatch(setAuthData({ token, userId }));
+      }
+    }
+
     if (!token || !userId) {
+      // Redirect to /auth if not authenticated
       router.push('/auth');
     } else {
-      dispatch(setAuthData({ token, userId })); // Dispatch action to set auth data
+      // Stop loading if authenticated
       setLoading(false);
     }
-  }, [router, token, userId, dispatch]);
+  }, [reduxToken, reduxUserId, dispatch, router]);
 
   if (loading) {
     return <Loader />;
@@ -89,7 +104,7 @@ const Profile = () => {
   return (
     <Layout>
       <Suspense fallback={<Loader />}>
-        <ProfileContent token={token} userId={userId} />
+        <ProfileContent token={reduxToken} userId={reduxUserId} />
       </Suspense>
     </Layout>
   );

@@ -1,26 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAuthData } from '@/store/authSlice'; // Make sure the path to authSlice is correct
 import LOGO from '../../public/logo.svg';
 import Button from './Button';
 import CustomLink from './CustomLink';
 
 const Header = () => {
   const router = useRouter();
-  const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+
+  // Get the authentication state from Redux store
+  const { token, userId } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    const userId = localStorage.getItem('userId');
-    if (token && userId) {
-      setUser({ id: userId, token });
+    // Load auth data from localStorage and update the Redux store
+    const storedToken = localStorage.getItem('authToken');
+    const storedUserId = localStorage.getItem('userId');
+
+    if (storedToken && storedUserId) {
+      dispatch(setAuthData({ token: storedToken, userId: storedUserId }));
     }
-  }, []);
+  }, [dispatch]);
 
   const signOut = () => {
     localStorage.removeItem('userId');
     localStorage.removeItem('authToken');
-    window.location.href = '/';
+    window.location.href = '/auth'; // Redirect to auth page after sign out
   };
 
   return (
@@ -42,12 +49,13 @@ const Header = () => {
         <CustomLink href={'/'} style={`h-30 ${router.pathname === '/' ? 'font-bold underline' : ''}`}>
           Home
         </CustomLink>
-        <CustomLink prefetch={false} href={'/dashboard'} style={`h-30 ${router.pathname === '/dashboard' ? 'font-bold underline' : ''}`}>
-          Dashboard
-        </CustomLink>
 
-        {user ? (
+
+        {token && userId ? (
           <>
+            <CustomLink prefetch={false} href={'/dashboard'} style={`h-30 ${router.pathname === '/dashboard' ? 'font-bold underline' : ''}`}>
+              Dashboard
+            </CustomLink>
             <CustomLink prefetch={false} href={'/profile'} style={`h-30 ${router.pathname === '/profile' ? 'font-bold underline' : ''}`}>
               Profile
             </CustomLink>
@@ -62,17 +70,18 @@ const Header = () => {
         )}
       </nav>
 
-      {/* Navigation for mobile screens */}
+
       <nav className="md:hidden flex flex-col items-center space-y-3 mt-3">
         <CustomLink href={'/'} style={`h-30 ${router.pathname === '/' ? 'font-bold underline' : ''}`}>
           Home
         </CustomLink>
-        <CustomLink prefetch={false} href={'/dashboard'} style={`h-30 ${router.pathname === '/dashboard' ? 'font-bold underline' : ''}`}>
-          Dashboard
-        </CustomLink>
 
-        {user ? (
+
+        {token && userId ? (
           <>
+            <CustomLink prefetch={false} href={'/dashboard'} style={`h-30 ${router.pathname === '/dashboard' ? 'font-bold underline' : ''}`}>
+              Dashboard
+            </CustomLink>
             <CustomLink prefetch={false} href={'/profile'} style={`h-30 ${router.pathname === '/profile' ? 'font-bold underline' : ''}`}>
               Profile
             </CustomLink>

@@ -14,7 +14,7 @@ import { AIChatSession } from './../../../../../service/AIModal';
 function Summery({ enabledNext }) {
     const dispatch = useDispatch();
     const resumeInfo = useSelector((state) => state.resume.info); // Select resume info from Redux store
-    const prompt = `Job Title: ${resumeInfo.jobTitle}, Provide a list of experience summaries for three experience levels (Senior, Mid-level, and Fresher) that are ATS-friendly. Ensure the summaries use industry-relevant keywords and align with common job descriptions for the {jobTitle}. Responses should be in array format, including 'summary', 'experience_level', and 'keywords' fields in JSON format for each experience level.`;
+    const prompt = `Job Title: ${resumeInfo.jobTitle}. Provide a list of experience summaries for three experience levels (Senior, Mid-level, and Fresher) that are ATS-friendly. Each summary should be concise, ideally between 40 to 60 words, and use industry-relevant keywords that align with common job descriptions for the ${resumeInfo.jobTitle}. Each response should be in array format, including 'summary', 'experience_level', and 'keywords' fields in JSON format for each experience level.`;
     
     const [summary, setSummary] = useState(resumeInfo?.summary || ''); // Initialize with Redux state
     const [loading, setLoading] = useState(false);
@@ -54,7 +54,6 @@ function Summery({ enabledNext }) {
                 summary: summary
             }
         };
-        console.log(data);
 
         try {
             // Simulate API call
@@ -68,7 +67,7 @@ function Summery({ enabledNext }) {
             setLoading(false);
         }
     };
-
+    
     return (
         <div>
             <div className='p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10'>
@@ -78,6 +77,7 @@ function Summery({ enabledNext }) {
                 <form className='mt-7' onSubmit={onSave}>
                     <div className='flex justify-between items-end'>
                         <label>Add Summary</label>
+                        {!aiGeneratedSummaryList.length?
                         <Button
                             variant="outline"
                             onClick={GenerateSummaryFromAI}
@@ -87,6 +87,8 @@ function Summery({ enabledNext }) {
                         >
                             <Brain className='h-4 w-4' /> Generate from AI
                         </Button>
+                        :null
+                    }
                     </div>
                     <CustomTextarea
                         className="mt-5"
@@ -94,11 +96,11 @@ function Summery({ enabledNext }) {
                         value={summary}
                         onChange={(e) => setSummary(e.target.value)} // Update summary state
                     />
-                    <div className='mt-2 flex justify-end'>
+                    {/* <div className='mt-2 flex justify-end'>
                         <Button type="submit" disabled={loading}>
                             {loading ? <LoaderCircle className='animate-spin' /> : 'Save'}
                         </Button>
-                    </div>
+                    </div> */}
                 </form>
             </div>
 

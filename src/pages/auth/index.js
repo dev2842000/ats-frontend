@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 import Link from "next/link";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
@@ -6,6 +8,23 @@ import Layout from "@/CommonComponents/Layout";
 
 const Auth = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+  const router = useRouter();
+  const { token: reduxToken } = useSelector((state) => state.auth); // Fetch token from Redux
+
+  useEffect(() => {
+    // Check Redux store for token first
+    let token = reduxToken;
+
+    if (!reduxToken) {
+      // If not in Redux, check localStorage
+      token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
+    }
+
+    // If token exists, redirect to dashboard
+    if (token) {
+      router.push('/dashboard');
+    }
+  }, [reduxToken, router]);
 
   const toggleAuthMode = () => {
     setIsSignIn(!isSignIn);

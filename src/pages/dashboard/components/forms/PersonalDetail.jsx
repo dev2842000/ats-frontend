@@ -63,7 +63,7 @@ function PersonalDetail({ enabledNext }) {
             <CustomInput
               name="fullName"
               label="Full Name"
-              defaultValue={resumeInfo?.fullName ? resumeInfo.fullName : 'Jon Doe' }
+              defaultValue={resumeInfo?.fullName}
               required
               onChange={handleInputChange}
             />
@@ -73,7 +73,7 @@ function PersonalDetail({ enabledNext }) {
               name="jobTitle"
               label="jobTitle"
               required
-              defaultValue={resumeInfo?.jobTitle?resumeInfo?.jobTitle:'Software Developer'}
+              defaultValue={resumeInfo?.jobTitle}
               onChange={handleInputChange}
             />
           </div>
@@ -82,7 +82,7 @@ function PersonalDetail({ enabledNext }) {
               name="phone"
               label="Phone"
               required
-              defaultValue={resumeInfo?.phone?resumeInfo?.phone:'+91-9999999999'}
+              defaultValue={resumeInfo?.phone}
               onChange={handleInputChange}
             />
           </div>
@@ -91,7 +91,7 @@ function PersonalDetail({ enabledNext }) {
               name="email"
               label="Email"
               required
-              defaultValue={resumeInfo?.email?resumeInfo?.email:'example@mail.com'}
+              defaultValue={resumeInfo?.email}
               onChange={handleInputChange}
             />
           </div>
@@ -123,11 +123,11 @@ function PersonalDetail({ enabledNext }) {
           ))}
         </div>
 
-        <div className='mt-3 flex justify-end'>
+        {/* <div className='mt-3 flex justify-end'>
           <Button type="submit" disabled={loading}>
             {loading ? <LoaderCircle className='animate-spin' /> : 'Save'}
           </Button>
-        </div>
+        </div> */}
       </form>
     </div>
   );

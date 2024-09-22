@@ -7,9 +7,7 @@ const resumeSlice = createSlice({
   },
   reducers: {
     setResumeInfo: (state, action) => {
-      console.log('Dispatched setResumeInfo:', action.payload); // Log the dispatched payload
       state.info = action.payload;
-      console.log('Updated state.info:', state.info); // Check if the state update happens correctly
     },
   },
 });

@@ -1,14 +1,14 @@
 const resumeData = {
-    fullName: null,
-    jobTitle:null,
+    fullName: "Jon Doe",
+    jobTitle:"Software Developer",
     links: [
         { name: 'Linkedin', link: '' , isChecked:false},
         { name: 'Github', link: '' , isChecked:false},
         { name: 'Leetcode', link: '' , isChecked:false},
         { name: 'Portfolio', link: '' , isChecked:false}
     ],
-    phone: null,
-    email: null,
+    phone: "+91-1111111111",
+    email: "example@mail.com",
     themeColor: "#000000",
     summary: 'Experienced Software Developer with 2+ years of expertise in MERN stack, with strong logic-building skills. Proficient in GatsbyJS, NextJS, React-Native, and Python. Eager to leverage my skills to contribute to the growth of your company.',
     experience: [
