@@ -102,7 +102,7 @@ const Profile = () => {
   }
 
   return (
-    <Layout>
+    <Layout title={'Profile'} name="profile" content="Create and manage your ATS-friendly resumes.">
       <Suspense fallback={<Loader />}>
         <ProfileContent token={reduxToken} userId={reduxUserId} />
       </Suspense>

@@ -31,7 +31,7 @@ const Auth = () => {
   };
 
   return (
-    <Layout>
+    <Layout title={'ATS-Resume | Login/SignUp'} name="login/signUp" content="Create and manage your ATS-friendly resumes.">
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">

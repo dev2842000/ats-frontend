@@ -21,7 +21,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout title={'ATS-Resume'} name="home" content="Create and manage your ATS-friendly resumes.">
       <div className="min-h-screen bg-gray-100 text-black">
         {/* Top section with background color */}
         <section className="w-full h-screen bg-blue-600 text-white flex items-center justify-center">

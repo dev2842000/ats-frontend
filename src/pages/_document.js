@@ -6,7 +6,6 @@ export default function Document() {
       <Head>
 
       <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
-
       </Head>
 
       <body className="antialiased">
