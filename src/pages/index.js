@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Layout from '@/CommonComponents/Layout';
 import { AtomIcon, Edit, Share2 } from 'lucide-react';
 import Link from 'next/link';
 
 const Home = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <Layout title={'ATS-Resume'} name="home" content="Create and manage your ATS-friendly resumes.">

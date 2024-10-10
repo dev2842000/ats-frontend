@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setResumeInfo } from '@/store/resumeSlice'; // Adjust the path if necessary
 import Layout from '@/CommonComponents/Layout';
 import ResumePreview from './components/ResumePreview';
 import FormSection from './components/FormSection';
