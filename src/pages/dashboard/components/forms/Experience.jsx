@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import RichTextEditor from '../RichTextEditor'
-import { ResumeInfoContext } from '@/context/ResumeInfoContext'
 import { toast } from 'sonner'
 import { LoaderCircle } from 'lucide-react'
 import CustomInput from '@/Component/CommonComponents/CustomInput'
