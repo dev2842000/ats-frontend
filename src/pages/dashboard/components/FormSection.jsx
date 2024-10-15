@@ -7,7 +7,7 @@ import Education from './forms/Education';
 import Skills from './forms/Skills';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Button from '@/CommonComponents/Button';
+import Button from '@/Component/CommonComponents/Button';
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);

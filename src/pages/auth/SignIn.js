@@ -1,8 +1,8 @@
 import { useState } from "react";
-import CustomInput from "../../CommonComponents/CustomInput"; // Update the import
-import Button from "../../CommonComponents/Button";
+import CustomInput from "../../Component/CommonComponents/CustomInput"; // Update the import
+import Button from "../../Component/CommonComponents/Button";
 import { useRouter } from 'next/router';
-import Error from "../../CommonComponents/Error";
+import Error from "../../Component/CommonComponents/Error";
 import { setToken } from "@/utils/helper";
 
 const SignIn = () => {

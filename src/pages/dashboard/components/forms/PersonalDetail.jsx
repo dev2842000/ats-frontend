@@ -2,8 +2,8 @@
 import { LoaderCircle } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import CustomInput from '@/CommonComponents/CustomInput';
-import Button from '@/CommonComponents/Button';
+import CustomInput from '@/Component/CommonComponents/CustomInput';
+import Button from '@/Component/CommonComponents/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { setResumeInfo } from '@/store/resumeSlice';
 

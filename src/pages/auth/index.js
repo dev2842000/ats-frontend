@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Link from "next/link";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
-import Layout from "@/CommonComponents/Layout";
+import Layout from "@/Component/CommonComponents/Layout";
 
 const Auth = () => {
   const [isSignIn, setIsSignIn] = useState(true);

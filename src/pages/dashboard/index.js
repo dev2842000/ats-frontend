@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import Layout from "@/CommonComponents/Layout";
+import Layout from "@/Component/CommonComponents/Layout";
 import AddReasume from './components/AddReasume';
-import Loader from '@/CommonComponents/Loader'; // Assuming you have a Loader component
+import Loader from '@/Component/CommonComponents/Loader'; // Assuming you have a Loader component
 
 const Dashboard = () => {
   const router = useRouter();

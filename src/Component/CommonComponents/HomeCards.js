@@ -1,5 +1,5 @@
 import React from "react";
-const MyCard = ({ dynamicIcon, title, description }) => {
+const Card = ({ dynamicIcon, title, description }) => {
   return (
     <div className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10">
       {dynamicIcon}
@@ -9,4 +9,4 @@ const MyCard = ({ dynamicIcon, title, description }) => {
   );
 };
 
-export default MyCard;
+export default Card;

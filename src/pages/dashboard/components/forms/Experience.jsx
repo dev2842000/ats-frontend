@@ -3,8 +3,8 @@ import RichTextEditor from '../RichTextEditor'
 import { ResumeInfoContext } from '@/context/ResumeInfoContext'
 import { toast } from 'sonner'
 import { LoaderCircle } from 'lucide-react'
-import CustomInput from '@/CommonComponents/CustomInput'
-import Button from '@/CommonComponents/Button'
+import CustomInput from '@/Component/CommonComponents/CustomInput'
+import Button from '@/Component/CommonComponents/Button'
 import { useSelector } from 'react-redux'
 
 const formField={

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { setToken, signUpValidateForm } from "@/utils/helper";
-import Error from "@/CommonComponents/Error";
-import CustomInput from "@/CommonComponents/CustomInput";
+import Error from "@/Component/CommonComponents/Error";
+import CustomInput from "@/Component/CommonComponents/CustomInput";
 
 const SignUp = () => {
   const router = useRouter();

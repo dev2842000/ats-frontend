@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PlusSquare } from 'lucide-react';
-import CustomInput from '@/CommonComponents/CustomInput';
-import Button from '@/CommonComponents/Button';
+import CustomInput from '@/Component/CommonComponents/CustomInput';
+import Button from '@/Component/CommonComponents/Button';
 import { useRouter } from 'next/router';
 
 const AddResume = () => {

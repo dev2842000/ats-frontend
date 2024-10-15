@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "@/CommonComponents/Layout";
+import Layout from "@/Component/CommonComponents/Layout";
 import { AtomIcon, Edit, Share2 } from "lucide-react";
 import Link from "next/link";
-import MyCard from "@/CommonComponents/Cardstemp";
+import Card from "@/Component/CommonComponents/HomeCards";
 
 const Home = () => {
   const cardData = [
@@ -58,7 +58,7 @@ const Home = () => {
           <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {cardData.map((item) => {
               return (
-                <MyCard
+                <Card
                   key={item.title}
                   dynamicIcon={item.icon}
                   title={item.title}

@@ -1,4 +1,4 @@
-import Layout from '@/CommonComponents/Layout';
+import Layout from '@/Component/CommonComponents/Layout';
 import ResumePreview from './components/ResumePreview';
 import FormSection from './components/FormSection';
 export default function Page() {

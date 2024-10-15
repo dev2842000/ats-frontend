@@ -6,8 +6,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { LoaderCircle } from 'lucide-react'
 // import GlobalApi from './../../../../../service/GlobalApi'
 import { toast } from 'sonner'
-import CustomInput from '@/CommonComponents/CustomInput'
-import Button from '@/CommonComponents/Button'
+import CustomInput from '@/Component/CommonComponents/CustomInput'
+import Button from '@/Component/CommonComponents/Button'
 function Skills() {
 
     // const [skillsList,setSkillsList]=useState([{

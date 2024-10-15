@@ -1,7 +1,7 @@
 import { useEffect, useState, Suspense } from "react";
 import { useRouter } from 'next/navigation';
-import Layout from "@/CommonComponents/Layout";
-import Loader from "@/CommonComponents/Loader";
+import Layout from "@/Component/CommonComponents/Layout";
+import Loader from "@/Component/CommonComponents/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthData } from '../../store/authSlice'; // Adjust the path if necessary
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { BtnBold, BtnBulletList, BtnItalic, BtnLink, BtnNumberedList, BtnStrikeThrough, BtnUnderline, Editor, EditorProvider, Separator, Toolbar } from 'react-simple-wysiwyg'
 import { AIChatSession } from './../../../../service/AIModal';
 import { toast } from 'sonner';
-import Button from '@/CommonComponents/Button';
+import Button from '@/Component/CommonComponents/Button';
 import { useSelector } from 'react-redux';
 
 const PROMPT = 'position title: {positionTitle}, Based on the position title, give me 5-7 bullet points for my experience in the resume (Please do not add experience level and No JSON array). Give me the result in HTML list format with <ul> and <li> tags.'
